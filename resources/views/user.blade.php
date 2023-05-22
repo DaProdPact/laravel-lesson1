@@ -9,5 +9,10 @@
 <body>
   <h1>{{ $name }}</h1>
   <p>{{ $age }}</p>
+  <p>{{ print_r($data) }}</p>
+
+
+
+  
 </body>
 </html>

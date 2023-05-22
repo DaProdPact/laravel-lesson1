@@ -37,8 +37,11 @@ Route::get('/',function(){
     return 'Welcome !';
 });
 
-Route::get('/users', [UserController::class,'index'])->name('login');
+Route::get('/users', [UserController::class,'index']);
 Route::get('/users/{id}', [UserController::class,'show']);
+Route::get('/about', [UserController::class,'about']);
+
+
 
 
 // Route::redirect('/welcome' , '/' );
