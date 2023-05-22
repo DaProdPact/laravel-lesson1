@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -31,42 +33,47 @@ use Illuminate\Http\Request;
     
 
 Route::get('/',function(){
-    return 'Welcome ! ';
+    return 'Welcome !';
 });
+
+Route::get('/users', [UserController::class,'index']);
+
 // Route::redirect('/welcome' , '/' );
 
-Route::get('/users',function(Request $request){
-    dd($request);
-    return null;
-});
+// Route::get('/users',function(Request $request){
+//     dd($request);
+//     return null;
+// });
 
-Route::get('/get-text',function(){
-    return response()->json(['name' => 'arjhen' , 'age' => '22']);
-                // ->header('Content-Type' , 'text/plain');
-});
+// Route::get('/get-text',function(){
+//     return response()->json(['name' => 'arjhen' , 'age' => '22']);
+//                 // ->header('Content-Type' , 'text/plain');
+// });
 
-Route::get('/get-download',function(){
-    $path = public_path().'/sample.txt';
-    $name = 'sample.txt';
-    $header = array(
-        'Content-Type : application/text-plain',
-    );
+// Route::get('/get-download',function(){
+//     $path = public_path().'/sample.txt';
+//     $name = 'sample.txt';
+//     $header = array(
+//         'Content-Type : application/text-plain',
+//     );
     
-    return response()->download($path,$name,$header);
-                // ->header('Content-Type' , 'text/plain');
+//     return response()->download($path,$name,$header);
+//                 // ->header('Content-Type' , 'text/plain');
 
-});
+// });
 
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/user', function () {
-    return view('user');
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/employee', function () {
-    return view('user');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+// // Route::get('/user', function () {
+// //     return view('user');
+// // });
+// Route::get('/about', function () {
+//     return view('about');
+// });
+// Route::get('/employee', function () {
+//     return view('user');
+// });
+
+
