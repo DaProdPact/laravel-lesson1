@@ -54,4 +54,19 @@ Route::get('/get-download',function(){
     
     return response()->download($path,$name,$header);
                 // ->header('Content-Type' , 'text/plain');
+
+});
+
+
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/user', function () {
+    return view('user');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/employee', function () {
+    return view('user');
 });
