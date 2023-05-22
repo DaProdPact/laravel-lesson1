@@ -4,6 +4,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +37,9 @@ Route::get('/',function(){
     return 'Welcome !';
 });
 
-Route::get('/users', [UserController::class,'index']);
+Route::get('/users', [UserController::class,'index'])->name('login');
+Route::get('/users/{id}', [UserController::class,'show']);
+
 
 // Route::redirect('/welcome' , '/' );
 
