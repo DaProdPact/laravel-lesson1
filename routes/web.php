@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EmployeeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +49,7 @@ Route::get('/about', [UserController::class,'about']);
 // Route::get('/students', [StudentController::class,'index']);
 Route::get('/student/{id}', [StudentController::class,'show']);
 
-
+Route::get('/employee',[EmployeeController::class,'index']);
 
 
 
