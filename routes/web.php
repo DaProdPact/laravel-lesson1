@@ -5,6 +5,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,9 +39,15 @@ Route::get('/',function(){
     return 'Welcome !';
 });
 
-Route::get('/users', [UserController::class,'index']);
+// Route::get('/', [UserController::class,'student.index']);
+Route::get('/', [StudentController::class,'index']);
+
 Route::get('/users/{id}', [UserController::class,'show']);
 Route::get('/about', [UserController::class,'about']);
+// Route::get('/students', [StudentController::class,'index']);
+Route::get('/student/{id}', [StudentController::class,'show']);
+
+
 
 
 
