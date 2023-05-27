@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Students</title>
-    <style>
-        table,tr,th,td{
-            border:black solid 1px;
-        }
-    </style>
-</head>
-<body>
+
     {{-- @foreach ($students as $student)
     <p>{{ $student->gender }} {{ $student->gender_count}}</p>
     @endforeach --}}
 
+@include('partials.header', ['title' => 'Employee System'])
 
-     <table>
+
+<table class="table table-striped">
+    <tr class="bg-success">
+        <th class="text-white">First Name</th>
+        <th class="text-white">Last Name</th>
+        <th class="text-white">Gender</th>
+        <th class="text-white">Age</th>
+
+
+    </tr>
+
+
+        @foreach ($employees as $employee)
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Age</th>
+            <td>{{ $employee -> first_name }}</td>
+            <td>{{ $employee -> last_name }}</td>
+            <td>{{ $employee -> gender }}</td>
+            <td>{{ $employee -> age }}</td>
 
 
         </tr>
-  
-
-            @foreach ($employees as $employee)
-            <tr>
-                <td>{{ $employee -> first_name }}</td>
-                <td>{{ $employee -> last_name }}</td>
-                <td>{{ $employee -> gender }}</td>
-                <td>{{ $employee -> age }}</td>
-
-
-            </tr>
 @endforeach
-       
-       
-    </table>
+</table>
+
+
 
 
 
@@ -67,6 +56,4 @@
        
        
     </table> --}}
-</body>
-</html>
-
+@include('partials.footer')

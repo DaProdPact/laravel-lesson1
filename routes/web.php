@@ -37,19 +37,56 @@ use App\Http\Controllers\EmployeeController;
 // });
     
 
-Route::get('/',function(){
-    return 'Welcome !';
+// Route::get('/',function(){
+//     return 'Welcome !';
+// });
+
+Route::get('/', [UserController::class,'login']);
+
+Route::get('/login', [UserController::class,'login'])->name('login')->middleware('guest');;
+Route::post('/login/process', [UserController::class,'process']);
+
+
+Route::get('/register', [UserController::class,'register']);
+Route::post('/store', [UserController::class,'store']);
+Route::post('/logout', [UserController::class,'logout']);
+
+
+Route::controller(EmployeeController::class)->group(function(){
+
+  Route::get('/add/employee','create');
+  Route::post('/add/employee','store');
+  Route::get('/employee/{employee}','show');
+  Route::put('/employee/{employee}','update');
+  Route::delete('/employee/{employee}','destroy');
+
 });
 
-// Route::get('/', [UserController::class,'student.index']);
-Route::get('/', [StudentController::class,'index']);
 
-Route::get('/users/{id}', [UserController::class,'show']);
-Route::get('/about', [UserController::class,'about']);
-// Route::get('/students', [StudentController::class,'index']);
-Route::get('/student/{id}', [StudentController::class,'show']);
 
-Route::get('/employee',[EmployeeController::class,'index']);
+
+
+// Route::get('/users/{id}', [UserController::class,'show']);
+// Route::get('/about', [UserController::class,'about']);
+// // Route::get('/students', [StudentController::class,'index']);
+// Route::get('/student/{id}', [StudentController::class,'show']);
+
+// Route::get('/employee',[EmployeeController::class,'index']);
+
+Route::get('/employee',[EmployeeController::class,'index'])->middleware('auth');
+// Route::get('/date',[EmployeeController::class,'index']);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
